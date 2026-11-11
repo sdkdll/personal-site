@@ -1,4 +1,6 @@
 {
+  "buildCommand": "npm run build",
+  "outputDirectory": "public",
   "rewrites": [
     { "source": "/api/profile", "destination": "/api/index.js" },
     { "source": "/bio", "destination": "/bio.html" },
