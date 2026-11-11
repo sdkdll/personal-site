@@ -8,7 +8,7 @@ const crypto = require('crypto');
 const root = path.join(__dirname, '..');
 const out = path.join(root, 'public');
 
-const pages = ['index.html', 'bio.html', 'music.html'];
+const pages = ['index.html', 'bio.html', 'music.html', '404.html'];
 const dirs = ['css', 'js', 'assets'];
 
 function hash(file) {
