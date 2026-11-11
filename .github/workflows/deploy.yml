@@ -30,7 +30,6 @@ jobs:
       # Needs a Cloudflare API token with "Cloudflare Pages: Edit" permission.
       # Create one at https://dash.cloudflare.com/profile/api-tokens
       - name: Deploy to Cloudflare Pages
-        if: ${{ secrets.CLOUDFLARE_API_TOKEN != '' }}
         continue-on-error: true
         uses: cloudflare/wrangler-action@v3
         with:
