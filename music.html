@@ -1,0 +1,61 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Music | your.name</title>
+  <meta name="description" content="Music.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <canvas id="bg"></canvas>
+
+  <nav class="nav">
+    <a href="index.html" class="brand">🌧 your.name</a>
+    <ul class="nav-links">
+      <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+      <li><a href="bio.html" data-i18n="nav.bio">Bio</a></li>
+      <li><a href="music.html" aria-current="page" data-i18n="nav.music">Music</a></li>
+      <li><a href="https://github.com/your-username" data-i18n="nav.links">Links</a></li>
+    </ul>
+    <div class="lang">
+      <button id="lang-toggle" aria-expanded="false" aria-label="Language">
+        <span id="lang-current">EN</span>
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <ul id="lang-menu">
+        <li><button data-lang="en"><span class="code">EN</span>English</button></li>
+        <li><button data-lang="es"><span class="code">ES</span>Español</button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="page">
+
+    <section class="hero">
+      <span class="eyebrow" data-i18n="nav.music">Music</span>
+      <h1 class="name title-sm" data-i18n="music.title">Music</h1>
+      <p class="tagline" data-i18n="music.subtitle">The songs I keep on repeat.</p>
+    </section>
+
+    <section class="section first">
+      <hr class="divider">
+      <span class="label">On repeat</span>
+      <div id="tracks"></div>
+    </section>
+
+  </main>
+
+  <footer>
+    <span data-i18n="footer.text">made with too much coffee</span>
+  </footer>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/lang.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/tracks-data.js"></script>
+  <script src="js/tracks.js"></script>
+</body>
+</html>
