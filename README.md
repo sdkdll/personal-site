@@ -101,6 +101,14 @@ function in `api/index.js`.
 - Write the About section in `js/i18n.js`
 - Update the copyright line in `LICENSE`
 
+## Note on 404 pages
+
+`404.html` is used as-is by Cloudflare Pages and by most static servers.
+
+Vercel serves `index.html` for unknown paths instead, since it treats the
+project as a single page app. If you want a real 404 on Vercel, add a
+redirect with `status: 404` to `vercel.json` before the catch-all.
+
 ## Layout
 
 ```
