@@ -4,7 +4,8 @@
   "rewrites": [
     { "source": "/api/profile", "destination": "/api/index.js" },
     { "source": "/bio", "destination": "/bio.html" },
-    { "source": "/music", "destination": "/music.html" }
+    { "source": "/music", "destination": "/music.html" },
+    { "source": "/:path((?!api/|assets/|css/|js/|bio$|music$|index\\.html$|404\\.html$).*)", "destination": "/404.html", "status": 404 }
   ],
   "headers": [
     {
