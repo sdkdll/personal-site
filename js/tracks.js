@@ -15,13 +15,25 @@
 
     row.innerHTML = `
       <span class="num">${String(i + 1).padStart(2, '0')}</span>
-      ${track.cover ? `<img class="cover" src="${track.cover}" alt="" loading="lazy" />` : '<div class="cover"></div>'}
+      ${track.cover ? `<span class="cover sk"><img src="${track.cover}" alt="" loading="lazy" /></span>` : '<span class="cover"></span>'}
       <div class="meta">
         <div class="name"></div>
         <div class="artist"></div>
       </div>
       <span class="len"></span>
     `;
+
+    // La portada sale del placeholder cuando la imagen entra
+    const cover = row.querySelector('.cover');
+    const coverImg = cover && cover.querySelector('img');
+    if (coverImg) {
+      const reveal = () => cover.classList.remove('sk');
+      if (coverImg.complete && coverImg.naturalWidth > 0) reveal();
+      else {
+        coverImg.addEventListener('load', reveal, { once: true });
+        coverImg.addEventListener('error', reveal, { once: true });
+      }
+    }
 
     row.querySelector('.name').textContent = track.title || '';
     row.querySelector('.artist').textContent = track.artist || '';

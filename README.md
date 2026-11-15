@@ -67,6 +67,46 @@ The choice is stored in `localStorage`.
 Create the file, add it to the nav in the three existing pages, and add the
 route to `vercel.json` if you want a clean URL for it.
 
+## The icon
+
+`assets/favicon.svg` is the source. It is plain SVG, so edit it and
+regenerate the PNGs when you change it:
+
+```bash
+npm i -D playwright-core
+node scripts/iconos.cjs
+```
+
+That writes `favicon-32x32.png`, `apple-touch-icon.png` and `icon-512.png`.
+The three HTML files already link them, plus `assets/manifest.json` for
+installable-to-homescreen.
+
+## Colours
+
+Everything is driven by four variables at the top of `css/style.css`:
+
+```css
+--accent: #d8c5a1;        /* beige */
+--accent-dark: #a8794a;    /* marron */
+--accent-soft: rgba(216, 197, 161, 0.12);
+--bg: #0a0a0f;
+```
+
+Swap them for your own palette. There are no gradients anywhere on purpose.
+
+## Loading
+
+The presence card and the track covers show a placeholder (a soft pulsing
+block) until the real data arrives. It uses the `.sk` class:
+
+```html
+<span class="sk sk-line">text goes here</span>
+```
+
+`js/profile.js` and `js/tracks.js` remove the class when the data lands.
+If the API never answers, the placeholders are dropped after 8 seconds so
+the page never stays stuck.
+
 ## Deploying
 
 Push to `main` and the workflow in `.github/workflows/deploy.yml` handles it.
@@ -126,6 +166,8 @@ js/
 server/app.js       Express app
 api/index.js        serverless entry for Cloudflare Pages
 scripts/build.js    copies files into public/ with a version hash
+scripts/iconos.cjs  regenerates the favicon PNGs from the SVG
+assets/favicon.svg  source of the icon
 ```
 
 ## License

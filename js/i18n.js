@@ -8,7 +8,7 @@ const TRANSLATIONS = {
     'nav.links': 'Links',
 
     'hero.eyebrow': "Hi, I'm",
-    'hero.tagline': 'I occasionally do productive things.',
+    'hero.tagline': 'Replace this with one line about you.',
     'hero.bio': 'About me',
     'hero.links': 'Links',
 
@@ -24,7 +24,7 @@ const TRANSLATIONS = {
 
     'links.title': 'Links',
 
-    'footer.text': 'made with too much coffee'
+    'footer.text': 'built by hand'
   },
 
   es: {
@@ -34,7 +34,7 @@ const TRANSLATIONS = {
     'nav.links': 'Links',
 
     'hero.eyebrow': 'Hola, soy',
-    'hero.tagline': 'A veces hago cosas productivas.',
+    'hero.tagline': 'Cambia esto por una línea sobre ti.',
     'hero.bio': 'Sobre mí',
     'hero.links': 'Links',
 
@@ -50,7 +50,7 @@ const TRANSLATIONS = {
 
     'links.title': 'Links',
 
-    'footer.text': 'hecho con demasiado café'
+    'footer.text': 'hecho a mano'
   }
 };
 

@@ -43,7 +43,7 @@
       ctx.beginPath();
       ctx.moveTo(drop.x, drop.y);
       ctx.lineTo(drop.x - drop.length * 0.2, drop.y + drop.length);
-      ctx.strokeStyle = `rgba(168, 85, 247, ${drop.alpha * drop.z * 0.4})`;
+      ctx.strokeStyle = `rgba(216, 197, 161, ${drop.alpha * drop.z * 0.4})`;
       ctx.lineWidth = 1.2;
       ctx.stroke();
     }

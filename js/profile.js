@@ -14,6 +14,11 @@
 
   if (!el.card) return;
 
+  // Quita el placeholder (skeleton) cuando los datos llegan
+  const unsk = (node) => {
+    if (node) node.classList.remove('sk', 'sk-line', 'sk-round');
+  };
+
   const LABELS = {
     online: 'Online',
     idle: 'Idle',
@@ -38,6 +43,10 @@
 
     const { user, status, activity } = data;
 
+    unsk(el.name);
+    unsk(el.handle);
+    unsk(el.status);
+
     el.name.textContent = user.display_name || user.username;
     el.handle.textContent = `@${user.username}`;
 
@@ -50,6 +59,7 @@
       el.avatar.src = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`;
       el.avatar.alt = user.username;
     }
+    unsk(el.avatar);
 
     if (activity) {
       el.activity.classList.remove('hidden');
@@ -68,6 +78,13 @@
       // offline, keep the last state
     }
   }
+
+  // Si la API no responde, quitamos los placeholders para no dejar
+  // la tarjeta bloqueada con el skeleton.
+  setTimeout(() => {
+    if (el.card.classList.contains('hidden')) return;
+    document.querySelectorAll('.sk').forEach(unsk);
+  }, 8000);
 
   poll();
   setInterval(poll, 10000);

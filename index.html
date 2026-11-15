@@ -9,6 +9,10 @@
   <meta property="og:description" content="Personal site.">
   <meta property="og:type" content="website">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="alternate icon" href="assets/favicon-32x32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="manifest" href="assets/manifest.json">
+  <meta name="theme-color" content="#0a0a0d">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -40,7 +44,7 @@
     <section class="hero">
       <span class="eyebrow" data-i18n="hero.eyebrow">Hi, I'm</span>
       <h1 class="name">your.name</h1>
-      <p class="tagline" data-i18n="hero.tagline">I occasionally do productive things.</p>
+      <p class="tagline" data-i18n="hero.tagline">Replace this with one line about you.</p>
       <div class="hero-actions">
         <a href="bio.html" class="btn primary" data-i18n="hero.bio">About me</a>
         <a href="music.html" class="btn" data-i18n="hero.links">Links</a>
@@ -49,13 +53,13 @@
 
     <section class="card" id="presence">
       <div class="presence-row">
-        <img id="avatar" class="avatar" alt="" width="56" height="56">
+        <img id="avatar" class="avatar sk sk-round" alt="" width="56" height="56">
         <div class="presence-info">
-          <div id="presence-name" class="presence-name">your.name</div>
-          <div id="presence-handle" class="presence-handle">@your-username</div>
+          <div id="presence-name" class="presence-name sk sk-line">your.name</div>
+          <div id="presence-handle" class="presence-handle sk sk-line">@your-username</div>
           <div class="presence-state">
             <span id="status-dot" class="dot"></span>
-            <span id="presence-status">Offline</span>
+            <span id="presence-status" class="sk sk-line">Offline</span>
           </div>
         </div>
       </div>
@@ -102,7 +106,7 @@
   </main>
 
   <footer>
-    <span data-i18n="footer.text">made with too much coffee</span>
+    <span data-i18n="footer.text">built by hand</span>
   </footer>
 
   <script src="js/i18n.js"></script>
