@@ -7,7 +7,7 @@ or Cloudflare Pages.
 Plain HTML, CSS and JavaScript. No framework, no bundler, no build step, no
 tracking, no cookie banner.
 
-![Home](assets/preview.png)
+![Home](assets/preview-home.png)
 
 <table>
   <tr>
@@ -294,7 +294,7 @@ assets/
   favicon.svg       source of the icon
   manifest.json     web manifest
   og-image.png      social preview
-  preview.png       screenshot of the home page
+  preview-home.png  screenshot of the home page
   preview-bio.png   screenshot of the bio page
   preview-music.png screenshot of the music page
   preview-mobile.png screenshot on a phone
