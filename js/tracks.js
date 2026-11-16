@@ -1,44 +1,64 @@
-// Track list. Edit js/canciones.js to add your own.
+// Track list. Edit js/tracks-data.js to add your own.
+// The HTML already ships the rows (scripts/build.js generates them) so the
+// view source is not empty. Here we only make them interactive.
 
 (() => {
-  const list = document.getElementById('tracks');
-  if (!list) return;
-
   const tracks = window.TRACKS || [];
+  let list = null;
 
-  tracks.forEach((track, i) => {
-    const row = document.createElement('a');
-    row.className = 'track';
-    row.href = track.url || '#';
-    row.target = '_blank';
-    row.rel = 'noopener noreferrer';
+  function render() {
+    list.textContent = '';
 
-    row.innerHTML = `
-      <span class="num">${String(i + 1).padStart(2, '0')}</span>
-      ${track.cover ? `<span class="cover sk"><img src="${track.cover}" alt="" loading="lazy" /></span>` : '<span class="cover"></span>'}
-      <div class="meta">
-        <div class="name"></div>
-        <div class="artist"></div>
-      </div>
-      <span class="len"></span>
-    `;
+    tracks.forEach((track, i) => {
+      const row = document.createElement('a');
+      row.className = 'track';
+      row.href = track.url || '#';
+      row.target = '_blank';
+      row.rel = 'noopener noreferrer';
 
-    // La portada sale del placeholder cuando la imagen entra
-    const cover = row.querySelector('.cover');
-    const coverImg = cover && cover.querySelector('img');
-    if (coverImg) {
+      const cover = track.cover
+        ? `<span class="cover sk"><img src="${track.cover}" alt="" width="42" height="42" loading="lazy" decoding="async" referrerpolicy="no-referrer"></span>`
+        : '<span class="cover"></span>';
+
+      row.innerHTML = `
+        <span class="num">${String(i + 1).padStart(2, '0')}</span>
+        ${cover}
+        <div class="meta">
+          <div class="name"></div>
+          <div class="artist"></div>
+        </div>
+        <span class="len"></span>
+      `;
+
+      row.querySelector('.name').textContent = track.title || '';
+      row.querySelector('.artist').textContent = track.artist || '';
+      row.querySelector('.len').textContent = track.length || '';
+
+      list.appendChild(row);
+    });
+  }
+
+  function bindRows() {
+    list.querySelectorAll('.track').forEach((row) => {
+      const cover = row.querySelector('.cover');
+      const img = cover && cover.querySelector('img');
+      if (!img) return;
       const reveal = () => cover.classList.remove('sk');
-      if (coverImg.complete && coverImg.naturalWidth > 0) reveal();
+      if (img.complete && img.naturalWidth > 0) reveal();
       else {
-        coverImg.addEventListener('load', reveal, { once: true });
-        coverImg.addEventListener('error', reveal, { once: true });
+        img.addEventListener('load', reveal, { once: true });
+        img.addEventListener('error', reveal, { once: true });
       }
-    }
+    });
+  }
 
-    row.querySelector('.name').textContent = track.title || '';
-    row.querySelector('.artist').textContent = track.artist || '';
-    row.querySelector('.len').textContent = track.length || '';
+  function init() {
+    list = document.getElementById('tracks');
+    if (!list) return;
+    if (!list.querySelector('.track')) render();
+    bindRows();
+  }
 
-    list.appendChild(row);
-  });
+  init();
+  document.addEventListener('page:change', init);
 })();

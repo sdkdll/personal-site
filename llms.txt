@@ -1,0 +1,31 @@
+# your.name
+
+> Personal site template. Live Discord presence card, a music page and a small translation setup.
+> Static HTML, CSS and JavaScript. No framework, no bundler, no tracking.
+> Live Discord presence card, a track list, and translations in English and Spanish.
+
+## Pages
+
+- [Home]({{SITE_URL}}/): Introduction plus a live presence card with Discord
+  status, current activity and the song playing right now.
+- [Bio]({{SITE_URL}}/bio): Who I am, what I work on and the tools I use.
+- [Music]({{SITE_URL}}/music): The songs I keep on repeat, with album artwork.
+
+## About
+
+- Name: your.name
+- Handle: @your-username
+- Replace this list with your own links and facts.
+
+## Links
+
+- GitHub: https://github.com/your-username
+
+## Technical notes
+
+- Every page is server-rendered plain HTML. The view source contains the
+  full text of the site.
+- Presence data comes from the public, read-only Lanyard API.
+- The track list is plain HTML with progressive enhancement.
+- Structured data (JSON-LD) describes the person, the site and the list.
+- Navigation between pages happens without reloading, so nothing flickers.

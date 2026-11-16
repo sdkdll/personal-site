@@ -3,8 +3,23 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>your.name</title>
-  <meta name="description" content="Personal site.">
+  <title>your.name — Personal site</title>
+  <meta name="description" content="Personal site of your.name. Live Discord presence card, a bio with your skills and a music page with the tracks you keep on repeat.">
+  <meta name="theme-color" content="#0a0a0d">
+  <link rel="canonical" href="https://personal-site-sdkdll.vercel.app/">
+
+  <meta property="og:type" content="profile">
+  <meta property="og:site_name" content="your.name">
+  <meta property="og:title" content="your.name — Personal site">
+  <meta property="og:description" content="Personal site of your.name. Live Discord presence, a bio and a music page. Plain HTML, CSS and JavaScript: no framework, no bundler.">
+  <meta property="og:url" content="https://personal-site-sdkdll.vercel.app/">
+  <meta property="og:image" content="https://personal-site-sdkdll.vercel.app/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="your.name — Personal site">
+  <meta name="twitter:description" content="Personal site of your.name. Live Discord presence, a bio and a music page. Plain HTML, CSS and JavaScript: no framework, no bundler.">
+  <meta name="twitter:image" content="https://personal-site-sdkdll.vercel.app/assets/og-image.png">
   <meta property="og:title" content="your.name">
   <meta property="og:description" content="Personal site.">
   <meta property="og:type" content="website">
@@ -14,9 +29,34 @@
   <link rel="manifest" href="assets/manifest.json">
   <meta name="theme-color" content="#0a0a0d">
   <link rel="stylesheet" href="css/style.css">
+  <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://personal-site-sdkdll.vercel.app/#person",
+        "name": "your.name",
+        "url": "https://personal-site-sdkdll.vercel.app/",
+        "image": "https://personal-site-sdkdll.vercel.app/assets/og-image.png",
+        "description": "Replace this with a couple of lines about yourself.",
+        "sameAs": ["https://github.com/your-username"]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://personal-site-sdkdll.vercel.app/#website",
+        "url": "https://personal-site-sdkdll.vercel.app/",
+        "name": "your.name",
+        "inLanguage": ["en", "es"],
+        "author": { "@id": "https://personal-site-sdkdll.vercel.app/#person" }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
+  <a class="skip-link" href="#main">Skip to content</a>
   <canvas id="bg"></canvas>
 
   <nav class="nav">
@@ -39,7 +79,7 @@
     </div>
   </nav>
 
-  <main class="page">
+  <main class="page" id="main">
 
     <section class="hero">
       <span class="eyebrow" data-i18n="hero.eyebrow">Hi, I'm</span>
@@ -113,5 +153,6 @@
   <script src="js/lang.js"></script>
   <script src="js/main.js"></script>
   <script src="js/profile.js"></script>
+  <script src="js/router.js"></script>
 </body>
 </html>
