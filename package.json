@@ -8,7 +8,10 @@
   "scripts": {
     "start": "node server/app.js",
     "dev": "node --watch server/app.js",
-    "build": "node scripts/build.js"
+    "build": "node scripts/build.js",
+    "audit": "node scripts/audit.cjs",
+    "og": "node scripts/og.cjs",
+    "icons": "node scripts/iconos.cjs"
   },
   "dependencies": {
     "compression": "^1.7.4",
