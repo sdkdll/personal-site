@@ -32,7 +32,8 @@ Open http://localhost:3001
   pulsing block until the real data arrives, so nothing jumps or flashes.
 - **SEO ready** — canonical URLs, Open Graph and Twitter cards, JSON-LD
   structured data, `robots.txt`, `sitemap.xml` and `llms.txt`.
-- **Four languages** — English, Spanish, Portuguese and French out of the box.
+- **Two languages** — English and Spanish out of the box. Add more by
+  copying a block in `js/i18n.js`.
 - **A self-check** — `node scripts/audit.cjs` verifies all of the above.
 
 ## The presence card
