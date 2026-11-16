@@ -7,7 +7,20 @@ or Cloudflare Pages.
 Plain HTML, CSS and JavaScript. No framework, no bundler, no build step, no
 tracking, no cookie banner.
 
-![screenshot](assets/preview.png)
+![Home](assets/preview.png)
+
+<table>
+  <tr>
+    <td width="33%"><img src="assets/preview-bio.png" alt="Bio page"></td>
+    <td width="33%"><img src="assets/preview-music.png" alt="Music page"></td>
+    <td width="33%"><img src="assets/preview-mobile.png" alt="Mobile view"></td>
+  </tr>
+  <tr>
+    <td align="center"><sub>Bio</sub></td>
+    <td align="center"><sub>Music</sub></td>
+    <td align="center"><sub>Mobile</sub></td>
+  </tr>
+</table>
 
 ## Running it
 
@@ -110,6 +123,10 @@ That writes `favicon-32x32.png`, `apple-touch-icon.png` and `icon-512.png`.
 The three HTML files already link them, plus `assets/manifest.json` for
 installable-to-homescreen.
 
+| Icon | Social preview |
+| --- | --- |
+| <img src="assets/icon-512.png" width="96" height="96" alt="Favicon"> | <img src="assets/og-image.png" width="320" alt="Open Graph preview"> |
+
 The social preview image lives next to them:
 
 ```bash
@@ -173,7 +190,7 @@ tags, `robots.txt`, `sitemap.xml` and `llms.txt` all update at once.
 ## Checking your work
 
 ```bash
-node scripts/audit.cjs
+npm run audit
 ```
 
 It checks the things that make a site look generated instead of made:
@@ -182,6 +199,24 @@ one `<h1>` per page, `alt` text on every image, the favicon and manifest,
 `robots.txt` and `sitemap.xml`, secrets in the client code, source maps,
 gradients, bundle size and the security headers. It prints a pass/fail line
 per check.
+
+```
+  AUDITORÍA DEL SITIO
+
+  OK    View source con contenido real (index.html)  — 423 caracteres de texto
+  OK    Títulos únicos por página  — your.name — Personal site | Bio | Music
+  OK    Meta description única y con largo útil  — 131 / 130 / 121 / 112
+  OK    Datos estructurados en index.html  — Person + WebSite
+  OK    Canonical en bio.html
+  OK    Open Graph completo en music.html
+  OK    Un solo <h1> en index.html  — 1
+  OK    Landmark <main> en index.html
+  OK    robots.txt permite explícitamente a los asistentes de IA
+  OK    Sin claves ni tokens en el código que llega al navegador
+  OK    Sin bundle gigante  — 210 KB totales
+  ...
+  63/63 comprobaciones correctas
+```
 
 ## Deploying
 
@@ -253,11 +288,16 @@ scripts/
   build.js          copies files into public/ with a version hash
   iconos.cjs        regenerates the favicon PNGs from the SVG
   og.cjs            regenerates the social preview image
+  capturas.cjs      takes the screenshots used in this README
   audit.cjs         checks the site and prints a report
 assets/
   favicon.svg       source of the icon
   manifest.json     web manifest
   og-image.png      social preview
+  preview.png       screenshot of the home page
+  preview-bio.png   screenshot of the bio page
+  preview-music.png screenshot of the music page
+  preview-mobile.png screenshot on a phone
 robots.txt          crawler rules
 sitemap.xml         page list
 llms.txt            summary for AI assistants
